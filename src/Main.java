@@ -4,12 +4,12 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main {
-    static int playerLives=4;
+    static int playerLives = 4;
     static Player winner;
 
     public static void main(String[] args) {
         int playerCount;
-        boolean gameFinished=false;
+        boolean gameFinished = false;
         LinkedList<Player> players = new LinkedList<>();
         //1-ask P count
         playerCount = Integer.parseInt(getUserInput("Wie viele Spieler spielen mit?"));
@@ -19,32 +19,34 @@ public class Main {
             players.add(createPLayer(i));
         }
         //3- play
-        while (!gameFinished){
+        while (!gameFinished) {
 
-            gameFinished=playerTurn(players);
+            gameFinished = playerTurn(players);
         }
         //4- declare winner
 
     }
-    public static Boolean playerTurn(LinkedList<Player> players){
-       Player questionedPlayer=players.pop();
+
+    public static Boolean playerTurn(LinkedList<Player> players) {
+        Player questionedPlayer = players.pop();
         Iterator<Player> iterator = players.iterator();
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
-        System.out.println("questionee : "+questionedPlayer);
+        System.out.println("questionee : " + questionedPlayer);
 
 
         return false;
     }
-    private LinkedList<Player> questionPlayer(Player questionee,LinkedList<Player>players){
-    return players;
+
+    private LinkedList<Player> questionPlayer(Player questionee, LinkedList<Player> players) {
+        return players;
     }
 
     public static Player createPLayer(int id) {
         String name = getUserInput("Was ist der name für Spieler " + id + "?");
         String word = getUserInput("Bitte wähle ein Wort für " + name);
-        int lives=Main.playerLives;
+        int lives = Main.playerLives;
 
         return new Player(name, word, lives);
     }
