@@ -56,6 +56,9 @@ public class Main {
         String result;
         System.out.println(question);
         result = scanner.next();
+        /*
+        comment
+         */
         return result;
     }
 }
